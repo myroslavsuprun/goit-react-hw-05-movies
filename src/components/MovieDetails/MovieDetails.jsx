@@ -1,5 +1,6 @@
-import { Outlet } from 'react-router-dom';
-import { useLocation, Link } from 'react-router-dom';
+import { Outlet, useLocation, Link } from 'react-router-dom';
+import { Suspense } from 'react';
+
 import { MovieCard, MovieAdditionalInfo } from 'components';
 
 const MovieDetails = () => {
@@ -11,7 +12,9 @@ const MovieDetails = () => {
       <Link to={backLinkHref}>Go back</Link>
       <MovieCard />
       <MovieAdditionalInfo />
-      <Outlet />
+      <Suspense fallback={<div>Loading... </div>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };
