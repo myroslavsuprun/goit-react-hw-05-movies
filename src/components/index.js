@@ -1,6 +1,5 @@
 export * from './Header';
 export * from './NavBar';
-export * from './NavLink';
 export * from './App';
 export * from './MoviesList';
 export * from './MovieItem';
@@ -17,3 +16,5 @@ export * from './Cast';
 export * from './Reviews';
 export * from './CastItem';
 export * from './ReviewItem';
+export * from './SharedLayout';
+export * from './Container';

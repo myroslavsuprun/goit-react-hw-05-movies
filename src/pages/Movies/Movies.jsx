@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import { MoviesList, SearchForm } from 'components';
+import { MoviesList, SearchForm, PageTitle, Container } from 'components';
+import { SearchWrapper } from './Movies.styled';
 import { TMDBAPI } from 'js/API/TMDBAPI';
 
 const Movies = () => {
@@ -35,10 +36,15 @@ const Movies = () => {
   };
 
   return (
-    <>
-      <SearchForm onSubmit={onSearchFormSubmit} />
-      {moviesData && <MoviesList moviesData={moviesData} />}
-    </>
+    <main>
+      <Container>
+        <PageTitle title="Search for movies" size="34px" />
+        <SearchWrapper>
+          <SearchForm onSubmit={onSearchFormSubmit} />
+          {moviesData && <MoviesList moviesData={moviesData} />}
+        </SearchWrapper>
+      </Container>
+    </main>
   );
 };
 

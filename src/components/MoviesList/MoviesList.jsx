@@ -1,13 +1,15 @@
 import { MovieItem } from 'components/MovieItem';
 import PropTypes from 'prop-types';
 
+import { MoviesListStyled } from './MoviesList.styled';
+
 const MoviesList = ({ moviesData }) => {
   return (
-    <ul>
+    <MoviesListStyled>
       {moviesData.map(({ title, id }) => {
         return <MovieItem key={id} id={id} title={title} />;
       })}
-    </ul>
+    </MoviesListStyled>
   );
 };
 

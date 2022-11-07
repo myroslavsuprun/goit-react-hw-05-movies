@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { MoviesList, PageTitle } from 'components';
 import { TMDBAPI } from 'js/API/TMDBAPI';
 
+import { Container } from 'components';
+
 const Home = () => {
   const [moviesData, setMoviesData] = useState(null);
 
@@ -16,10 +18,12 @@ const Home = () => {
   }, []);
 
   return (
-    <>
-      <PageTitle />
-      {moviesData && <MoviesList moviesData={moviesData} />}
-    </>
+    <main>
+      <Container>
+        <PageTitle title="Trending Today" size="34px" />
+        {moviesData && <MoviesList moviesData={moviesData} />}
+      </Container>
+    </main>
   );
 };
 

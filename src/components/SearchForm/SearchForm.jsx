@@ -1,5 +1,8 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
+
+import { Form, Input, FormButton } from './SearchForm.styled';
+import { FcSearch } from 'react-icons/fc';
 
 const SearchForm = ({ onSubmit }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -23,18 +26,18 @@ const SearchForm = ({ onSubmit }) => {
   };
 
   return (
-    <>
-      <form onSubmit={onSearchFormSubmit}>
-        <input
-          type="text"
-          name="search"
-          placeholder="Search for movies"
-          value={searchQuery}
-          onChange={onSearchInputChange}
-        />
-        <button type="submit">Search</button>
-      </form>
-    </>
+    <Form onSubmit={onSearchFormSubmit}>
+      <Input
+        type="text"
+        name="search"
+        placeholder="Search for movies"
+        value={searchQuery}
+        onChange={onSearchInputChange}
+      />
+      <FormButton type="submit">
+        <FcSearch size={20} />
+      </FormButton>
+    </Form>
   );
 };
 
