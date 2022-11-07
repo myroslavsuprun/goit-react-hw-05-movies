@@ -11,6 +11,8 @@ const Home = () => {
       const moviesResponse = await TMDBAPI.getTrendingMovies();
       setMoviesData(moviesResponse);
     })();
+
+    document.title = 'Home';
   }, []);
 
   return (
