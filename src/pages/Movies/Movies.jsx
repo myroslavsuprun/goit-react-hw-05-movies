@@ -7,32 +7,28 @@ import { TMDBAPI } from 'js/API/TMDBAPI';
 
 const Movies = () => {
   const [moviesData, setMoviesData] = useState(null);
-  const [searchQuery, setSearchQuery] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    if (!searchQuery) return;
+    if (!searchParams.get('search')) {
+      return;
+    }
 
     (async () => {
-      const moviesResponse = await TMDBAPI.getMoviesBySearch(searchQuery);
+      const moviesResponse = await TMDBAPI.getMoviesBySearch(
+        searchParams.get('search')
+      );
 
       setMoviesData(moviesResponse);
     })();
-
-    const nextParams = searchQuery !== '' ? { search: searchQuery } : {};
-    setSearchParams(nextParams);
-  }, [searchQuery, setSearchParams]);
+  }, [searchParams]);
 
   useEffect(() => {
     document.title = 'Movies';
   });
 
-  useEffect(() => {
-    setSearchQuery(searchParams.get('search'));
-  }, [searchParams]);
-
   const onSearchFormSubmit = newSearchQuery => {
-    setSearchQuery(newSearchQuery);
+    setSearchParams({ search: newSearchQuery });
   };
 
   return (

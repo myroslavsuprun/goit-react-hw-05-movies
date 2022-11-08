@@ -7,7 +7,6 @@ import { Link } from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const location = useLocation();
-  console.log(location.state);
 
   const backLinkHref = location.state?.from ?? '/';
   return (
