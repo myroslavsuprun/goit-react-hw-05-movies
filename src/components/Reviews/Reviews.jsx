@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { TMDBAPI } from 'js/API/TMDBAPI';
 
 import { ReviewItem } from 'components';
+import { ReviewsList, ReviewWarning } from './Reviews.styled';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -21,15 +22,15 @@ const Reviews = () => {
   }
 
   if (reviews.length <= 0) {
-    return <p>There are no reviews yet</p>;
+    return <ReviewWarning>There are no reviews yet</ReviewWarning>;
   }
 
   return (
-    <ul>
+    <ReviewsList>
       {reviews.map(({ author, content, id }) => {
         return <ReviewItem key={id} content={content} author={author} />;
       })}
-    </ul>
+    </ReviewsList>
   );
 };
 

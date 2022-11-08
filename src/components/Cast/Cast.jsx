@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 
 import { TMDBAPI } from 'js/API/TMDBAPI';
 
-import { CastItem } from 'components/CastItem';
+import { CastItem } from 'components';
+import { CastList } from './Cast.styled';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -21,7 +22,7 @@ const Cast = () => {
   }
 
   return (
-    <ul>
+    <CastList>
       {cast.map(castActor => {
         const { id, name, character, profile_path } = castActor;
 
@@ -40,7 +41,7 @@ const Cast = () => {
           />
         );
       })}
-    </ul>
+    </CastList>
   );
 };
 

@@ -7,4 +7,5 @@ export const ContainerStyled = styled.div`
   flex-direction: column;
 
   margin-top: 20px;
+  padding: 0 60px;
 `;

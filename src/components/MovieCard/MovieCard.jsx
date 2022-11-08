@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { TMDBAPI } from 'js/API/TMDBAPI';
 
 import { MovieImage, MovieDescription } from 'components';
+import { MovieCardWrapper } from './MovieCard.styled';
 
 const MovieCard = () => {
   const { movieId } = useParams();
@@ -31,7 +32,7 @@ const MovieCard = () => {
   const poster = `${TMDBAPI.PATH_TO_POSTER}${poster_path}`;
 
   return (
-    <div>
+    <MovieCardWrapper>
       <MovieImage poster={poster} title={title} />
       <MovieDescription
         title={title}
@@ -40,7 +41,7 @@ const MovieCard = () => {
         genres={genres}
         overview={overview}
       />
-    </div>
+    </MovieCardWrapper>
   );
 };
 

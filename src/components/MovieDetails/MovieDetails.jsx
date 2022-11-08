@@ -1,21 +1,28 @@
-import { Outlet, useLocation, Link } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { Suspense } from 'react';
 
-import { MovieCard, MovieAdditionalInfo } from 'components';
+import { MovieCard, MovieAdditionalInfo, Container } from 'components';
+import { FaArrowLeft } from 'react-icons/fa';
+import { Link } from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const location = useLocation();
+  console.log(location.state);
 
   const backLinkHref = location.state?.from ?? '/';
   return (
-    <div>
-      <Link to={backLinkHref}>Go back</Link>
-      <MovieCard />
-      <MovieAdditionalInfo />
-      <Suspense fallback={<div>Loading... </div>}>
-        <Outlet />
-      </Suspense>
-    </div>
+    <>
+      <Link to={backLinkHref}>
+        <FaArrowLeft style={{ marginRight: '4px' }} /> Go back
+      </Link>
+      <Container>
+        <MovieCard />
+        <MovieAdditionalInfo />
+        <Suspense fallback={<div>Loading... </div>}>
+          <Outlet />
+        </Suspense>
+      </Container>
+    </>
   );
 };
 

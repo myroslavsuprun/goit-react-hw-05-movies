@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
+import { GenreItemStyled } from './GenreItem.styled';
 
 const GenreItem = ({ name }) => {
-  return <li>{name}</li>;
+  return <GenreItemStyled>{name}</GenreItemStyled>;
 };
 
 GenreItem.propTypes = {
