@@ -12,14 +12,16 @@ import {
 const ReviewItem = ({ author, content }) => {
   const [contentToShow, setContentToShow] = useState(null);
   const [isReadMore, setIsReadMore] = useState(true);
+  const [ReadMoreShown, setReadMoreShown] = useState(false);
 
   useEffect(() => {
     if (content.length >= 200) {
       setContentToShow(content.slice(0, 200));
+      setReadMoreShown(true);
     } else {
       setContentToShow(content);
     }
-  }, [setContentToShow, content]);
+  }, [setContentToShow, content, setReadMoreShown]);
 
   useEffect(() => {
     if (isReadMore) {
@@ -40,10 +42,12 @@ const ReviewItem = ({ author, content }) => {
         {author}
       </Author>
       <Content>
-        {contentToShow && `${contentToShow}...`}
-        <ToggleButton onClick={toggleReadMore}>
-          {isReadMore ? 'Read more' : 'Read less'}
-        </ToggleButton>
+        {contentToShow && contentToShow}
+        {ReadMoreShown && (
+          <ToggleButton onClick={toggleReadMore}>
+            {isReadMore ? 'Read more' : 'Read less'}
+          </ToggleButton>
+        )}
       </Content>
     </ReviewItemStyled>
   );
