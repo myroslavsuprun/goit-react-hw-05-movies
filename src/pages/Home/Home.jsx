@@ -19,7 +19,6 @@ const Home = () => {
 
   return (
     <main>
-      <Loader />
       <Container>
         <PageTitle title="Trending Today" size="34px" />
         {moviesData && <MoviesList moviesData={moviesData} />}
