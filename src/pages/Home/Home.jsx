@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { Loader, MoviesList, PageTitle } from 'components';
+import { MoviesList, PageTitle } from 'components';
 import { TMDBAPI } from 'js/API/TMDBAPI';
 
 import { Container } from 'components';
