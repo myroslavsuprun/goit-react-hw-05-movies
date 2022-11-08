@@ -18,3 +18,4 @@ export * from './CastItem';
 export * from './ReviewItem';
 export * from './SharedLayout';
 export * from './Container';
+export * from './Loader';

@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import { Suspense } from 'react';
 
-import { MovieCard, MovieAdditionalInfo, Container } from 'components';
+import { MovieCard, MovieAdditionalInfo, Container, Loader } from 'components';
 import { FaArrowLeft } from 'react-icons/fa';
 import { Link } from './MovieDetails.styled';
 
@@ -17,7 +17,7 @@ const MovieDetails = () => {
       <Container>
         <MovieCard />
         <MovieAdditionalInfo />
-        <Suspense fallback={<div>Loading... </div>}>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </Container>
