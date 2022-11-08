@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { MoviesList, PageTitle } from 'components';
+import { Loader, MoviesList, PageTitle } from 'components';
 import { TMDBAPI } from 'js/API/TMDBAPI';
 
 import { Container } from 'components';
@@ -19,6 +19,7 @@ const Home = () => {
 
   return (
     <main>
+      <Loader />
       <Container>
         <PageTitle title="Trending Today" size="34px" />
         {moviesData && <MoviesList moviesData={moviesData} />}
