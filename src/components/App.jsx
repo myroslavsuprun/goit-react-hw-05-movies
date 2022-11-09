@@ -19,8 +19,8 @@ export const App = () => {
           <Route path="reviews" element={<Reviews />} />
         </Route>
         <Route index element={<Home />} />
-        <Route path="*" element={<Navigate to="/" />} />
       </Route>
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 };
